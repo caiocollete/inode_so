@@ -48,6 +48,8 @@ struct Inode {
 };
 ```
 
+<img src="./img/inode_diagram.png" alt="Inode Diagram" />
+
 **Propósito:** Representa o inode principal de um arquivo ou diretório. Os ponteiros implementam um sistema de alocação em três níveis: diretos (para arquivos pequenos), indireto simples (para arquivos médios), indireto duplo e triplo (para arquivos grandes).
 
 #### 2.1.2 struct InodeExtensao
