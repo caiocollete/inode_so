@@ -485,7 +485,7 @@ void executar_link_real(char* origem, char* destino, bool simbolico) {
         }
     } else {
         // Link físico - encontrar inode da origem
-        int inode_origem = verificar_arquivo_existe(origem);
+        int inode_origem = encontrar_inode_por_caminho(origem);
         if (inode_origem == -1) {
             printf("Erro: Arquivo de origem '%s' não encontrado\n", origem);
             return;
