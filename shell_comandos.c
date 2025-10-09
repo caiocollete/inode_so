@@ -299,7 +299,10 @@ void executar_link(char** argumentos) {
             printf("Erro: Destino é obrigatório\n");
             return;
         }
-    } else {
+    } else if(strcmp(argumentos[1], "-h") == 0){
+        origem = argumentos[2];
+        destino = argumentos[3];
+    } else{
         origem = argumentos[1];
         destino = argumentos[2];
     }
