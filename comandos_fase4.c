@@ -289,6 +289,10 @@ void executar_rmdir_real(char* nome_dir) {
         printf("Diretório '%s' não encontrado\n", nome_dir);
         return;
     }
+    if(inode_dir == NUMERO_TOTAL_BLOCOS-1){
+        printf("Erro: Diretório raiz não pode ser removido\n");
+        return;
+    }
     
     // Verificar se é um diretório
     struct Inode inode;
