@@ -575,12 +575,19 @@ void executar_vi_real(char* nome_arquivo) {
         printf("Erro: Nome do arquivo não pode ser vazio\n");
         return;
     }
-    
+    int numero_inode = -1;
     // Verificar se arquivo existe
-    int numero_inode = verificar_arquivo_existe(nome_arquivo);
-    if (numero_inode == -1) {
-        printf("vi: '%s': Arquivo não encontrado\n", nome_arquivo);
-        return;
+    if(nome_arquivo[0] == '/'){
+        numero_inode = encontrar_inode_por_caminho(nome_arquivo);
+        if (numero_inode == -1) {
+            printf("vi: '%s': Arquivo não encontrado\n", nome_arquivo);
+        }
+    }
+    else{
+        numero_inode = verificar_arquivo_existe(nome_arquivo);
+        if (numero_inode == -1) {
+            printf("vi: '%s': Arquivo não encontrado\n", nome_arquivo);
+        }
     }
     
     // Exibir mensagem de visualização com número do inode
