@@ -568,3 +568,21 @@ void executar_df_real() {
     printf("Blocos defeituosos:  %d (%.2f MB)\n", blocos_defeituosos, (blocos_defeituosos * bytes_por_bloco) / (1024.0 * 1024.0));
     printf("Uso:                 %.1f%%\n", (blocos_ocupados * 100.0) / total_blocos);
 }
+
+// Implementação do comando vi
+void executar_vi_real(char* nome_arquivo) {
+    if (nome_arquivo == NULL || strlen(nome_arquivo) == 0) {
+        printf("Erro: Nome do arquivo não pode ser vazio\n");
+        return;
+    }
+    
+    // Verificar se arquivo existe
+    int numero_inode = verificar_arquivo_existe(nome_arquivo);
+    if (numero_inode == -1) {
+        printf("vi: '%s': Arquivo não encontrado\n", nome_arquivo);
+        return;
+    }
+    
+    // Exibir mensagem de visualização com número do inode
+    printf("Arquivo '%s' foi visualizado (inode: %d)\n", nome_arquivo, numero_inode);
+}

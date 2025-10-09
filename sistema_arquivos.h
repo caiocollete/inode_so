@@ -112,6 +112,7 @@ void executar_df(char** argumentos);
 void executar_cat(char** argumentos);
 void executar_echo(char** argumentos);
 void executar_pwd(char** argumentos);
+void executar_vi(char** argumentos);
 void executar_report(char** argumentos);
 void executar_help(char** argumentos);
 
@@ -126,6 +127,7 @@ void executar_chmod_real(char* permissoes, char* nome_arquivo);
 void executar_link_real(char* origem, char* destino, bool simbolico);
 void executar_bad_real(int numero_bloco);
 void executar_df_real();
+void executar_vi_real(char* nome_arquivo);
 
 // Protótipos das funções auxiliares da Fase 4
 void obter_data_hora_atual(char* data, char* hora);

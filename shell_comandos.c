@@ -250,6 +250,15 @@ void executar_pwd(char** argumentos) {
     printf("%s\n", caminho);
 }
 
+void executar_vi(char** argumentos) {
+    if (argumentos[1] == NULL) {
+        printf("Erro: Nome do arquivo é obrigatório\n");
+        return;
+    }
+    
+    executar_vi_real(argumentos[1]);
+}
+
 void executar_rmdir(char** argumentos) {
     if (argumentos[1] == NULL) {
         printf("Erro: Nome do diretório é obrigatório\n");
@@ -379,6 +388,7 @@ void executar_help(char** argumentos) {
     printf("  bad        - Marcar bloco como defeituoso\n");
     printf("  df         - Mostrar uso do disco\n");
     printf("  pwd        - Mostrar diretório atual\n");
+    printf("  vi         - Visualizar arquivo (mostra inode)\n");
     printf("  report     - Gerar relatórios do sistema\n");
     printf("  help       - Mostrar esta ajuda\n");
     printf("  exit       - Sair do programa\n");
@@ -419,6 +429,8 @@ void executar_comando(char** tokens, int token_count) {
         executar_echo(tokens);
     } else if (strcmp(comando, "pwd") == 0) {
         executar_pwd(tokens);
+    } else if (strcmp(comando, "vi") == 0) {
+        executar_vi(tokens);
     } else if (strcmp(comando, "report") == 0) {
         executar_report(tokens);
     } else if (strcmp(comando, "help") == 0) {
